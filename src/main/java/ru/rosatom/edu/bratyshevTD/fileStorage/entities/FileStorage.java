@@ -1,20 +1,27 @@
 package ru.rosatom.edu.bratyshevTD.fileStorage.entities;
 
-import jakarta.persistence.Entity;
-
-import java.time.LocalDate;
-import java.util.Base64;
+import jakarta.persistence.*;
 import java.util.Date;
 
-
+@Entity(name = "file_storage")
 public class FileStorage {
 
-    private Base64 file;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
+
+    @Lob
+    @Column(name = "file")
+    private byte[] file;
+    @Column(name = "title")
     private String title;
+    @Column(name = "creation_date")
     private Date creationDate;
+    @Column(name = "description")
     private String description;
 
-    public FileStorage(Base64 file, String title, Date creationDate, String description) {
+    public FileStorage(Long id, byte[] file, String title, Date creationDate, String description) {
+        Id = id;
         this.file = file;
         this.title = title;
         this.creationDate = creationDate;
@@ -24,11 +31,19 @@ public class FileStorage {
     public FileStorage() {
     }
 
-    public Base64 getFile() {
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
+    public byte[] getFile() {
         return file;
     }
 
-    public void setFile(Base64 file) {
+    public void setFile(byte[] file) {
         this.file = file;
     }
 
