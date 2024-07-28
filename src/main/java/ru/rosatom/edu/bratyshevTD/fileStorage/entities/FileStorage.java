@@ -10,7 +10,6 @@ public class FileStorage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Lob
     @Column(name = "file")
     private byte[] file;
     @Column(name = "title")

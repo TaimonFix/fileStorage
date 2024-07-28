@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "3366964f-f3fe-4d48-93ad-7d4bfb4a2a9d",
+		"name": "Testing API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37267085"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"file\": \"YWJj\",\r\n    \"title\": \"test.txt\",\r\n    \"fileData\": \"2023-10-01T12:00:00\",\r\n    \"description\": \"описание\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/app/create?zccz=zcz",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"app",
+						"create"
+					],
+					"query": [
+						{
+							"key": "zccz",
+							"value": "zcz",
+							"description": "xx"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"file\": \"YWJj\",\r\n    \"title\": \"test.txt\",\r\n    \"fileData\": \"2023-10-01T12:00:00\",\r\n    \"description\": \"описание\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/app/create?zccz=zcz",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"app",
+								"create"
+							],
+							"query": [
+								{
+									"key": "zccz",
+									"value": "zcz",
+									"description": "xx"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"file\": \"YWJj\",\r\n    \"title\": \"test.txt\",\r\n    \"fileData\": \"2023-10-01T12:00:00\",\r\n    \"description\": \"описание\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/app/create?zccz=zcz",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"app",
+								"create"
+							],
+							"query": [
+								{
+									"key": "zccz",
+									"value": "zcz",
+									"description": "xx"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": [
+				{
+					"name": "get",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "all files",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "pagination",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "sorting",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "asc",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/app/files?direction=dsc",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"app",
+								"files"
+							],
+							"query": [
+								{
+									"key": "direction",
+									"value": "dsc"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 28 Jul 2024 18:26:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"totalPages\": 5,\n    \"totalElements\": 10,\n    \"size\": 2,\n    \"content\": [\n        {\n            \"file\": \"SGVssfsfbG8gd29ybGQ=\",\n            \"title\": \"test.txt\",\n            \"creationDate\": \"2024-07-28T17:15:18.956+00:00\",\n            \"description\": \"описание\",\n            \"id\": 12\n        },\n        {\n            \"file\": \"SGVsbG8gd29ybGQ=\",\n            \"title\": \"test.txt\",\n            \"creationDate\": \"2024-07-28T17:15:13.700+00:00\",\n            \"description\": \"описание\",\n            \"id\": 11\n        }\n    ],\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"last\": false,\n    \"numberOfElements\": 2,\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 2,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"empty\": false\n}"
+				},
+				{
+					"name": "dsc",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

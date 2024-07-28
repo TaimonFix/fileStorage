@@ -1,15 +1,16 @@
 package ru.rosatom.edu.bratyshevTD.fileStorage.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import ru.rosatom.edu.bratyshevTD.fileStorage.entities.FileStorage;
 import ru.rosatom.edu.bratyshevTD.fileStorage.services.FileStorageService;
 
-import java.util.Base64;
-import java.util.Date;
+import java.util.List;
 
 @RestController
 public class FileStorageController {
@@ -21,19 +22,29 @@ public class FileStorageController {
         this.fileStorageService = fileStorageService;
     }
 
-    @PostMapping("/create")
-    public Long createFile(FileStorage fileStorage) {
-        fileStorage.setFile(Base64.getDecoder().decode(fileStorage.getFile()));
-        fileStorage.setCreationDate(new Date());
+    @GetMapping("/files")
+    public Page<FileStorage> getAllFiles(@RequestParam(defaultValue = "0") int page,
+                                         @RequestParam(defaultValue = "10") int size,
+                                         @RequestParam(defaultValue = "creationDate") String sortBy,
+                                         @RequestParam(defaultValue = "asc") String direction) {
 
+        Sort sort = direction.equalsIgnoreCase(Sort.Direction.ASC.name()) ?
+                Sort.by(sortBy).ascending() :
+                Sort.by(sortBy).descending();
+
+        Pageable pageable = PageRequest.of(page, size, sort);
+
+        return fileStorageService.getAllFiles(pageable);
+    }
+
+    @PostMapping("/create")
+    public Long createFile(@RequestBody FileStorage fileStorage) {
         return fileStorageService.createFile(fileStorage);
     }
 
-    @GetMapping("/get{id}")
-    public FileStorage getFile(@PathVariable Long id) {
+    @GetMapping("/get")
+    public FileStorage getFile(@RequestParam("id") Long id) {
         FileStorage fileStorage = fileStorageService.getFileById(id);
-        String encodedString = Base64.getEncoder().encodeToString(fileStorage.getFile());
-        fileStorage.setFile(encodedString.getBytes());
 
         return fileStorage;
     }
