@@ -21,8 +21,10 @@
 
 ## Инструкция по запуску проекта
 Проект поддерживает контейнеризацию при помощи docker.
-1. В терминале перейдите в директорию [docker](docker)
-2. Введите следующую команду: `docker-compose up`
+1. Клонируйте данный репозиторий в свою IDE 
+2. В терминале перейдите в директорию [docker](docker)
+3. Введите следующую команду: `docker-compose up`
+4. Запустите [FileStorageApplication.java](src/main/java/ru/rosatom/edu/bratyshevTD/fileStorage/FileStorageApplication.java).
 
 URL-адрес, по которому происходит обращение: 
 `localhost:8081/app`
